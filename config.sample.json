@@ -1,0 +1,17 @@
+{
+	"tg_token": "my-telegram-token",
+	"prometheus": "http://localhost:9090",
+	"queries": {
+		"scrapers": [
+			{
+				"description": "Enabled scrapers",
+				"query": "up",
+				"group_by_labels": [
+					"job",
+					"instance"
+				],
+				"value_format": "Up = {0}"
+			}
+		]
+	}
+}

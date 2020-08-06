@@ -1,0 +1,11 @@
+[Unit]
+Description=Prometheus WAN Monitor
+
+[Service]
+Restart=always
+User=root
+ExecStart=/usr/local/bin/prometheus-telegram-bot -c /etc/prometheus_telegram_bot.json
+TimeoutStopSec=20s
+
+[Install]
+WantedBy=multi-user.target
