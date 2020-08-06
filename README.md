@@ -32,7 +32,9 @@ For example, let's the sample configuration:
 This configuration will make the bot accept a command, */scrapers*. When it receives that command, it will make the query *up* to the Prometheus server, which will return the latest values for all possible labels. The bot will group those results by instance and job, and format them with the string formatter given. The message the bot will send will be something like this:
 
 > **Enabled scrapers**
+>
 > localhost:9090, prometheus: Up = 1.0
+>
 > localhost:9100, node: Up = 1.0
 
 You can add as many commands as you like, and add as many queries as you want to a single command.
