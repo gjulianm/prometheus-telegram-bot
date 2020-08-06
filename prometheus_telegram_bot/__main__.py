@@ -9,6 +9,7 @@ import re
 import json
 import collections
 import telegram
+import codecs
 
 from telegram.ext import Updater, CommandHandler
 
@@ -87,7 +88,9 @@ def main(args=None):
 
     logging.info(f"Loading config from {args.config}")
 
-    config = json.load(args.config)
+    # Ensure tildes and such are correctly interpreted
+    with codecs.open(args.config.name, 'r', encoding='utf-8') as f:
+        config = json.load(f)
 
     if 'tg_token' not in config:
         logging.error("Field 'tg_token' not found in config")
